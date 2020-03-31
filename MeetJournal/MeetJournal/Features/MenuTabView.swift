@@ -9,6 +9,9 @@
 import SwiftUI
 
 struct MenuTabView: View {
+    
+    @Environment(\.managedObjectContext) var managedObjectContext
+    
     @State private var tabSelection: Int = 0
     @State var showNewItem: Bool = false
     
@@ -16,7 +19,6 @@ struct MenuTabView: View {
         ZStack {
             GeometryReader { geometry in
                 TabView(selection: self.$tabSelection) {
-                    
                     HistoryView().tabItem {
                                Text("")
                      }.tag(0)

@@ -9,10 +9,13 @@
 import SwiftUI
 
 struct PersonView: View {
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    
+    @ObservedObject var viewModel: PersonViewModel = PersonViewModel()
+    
     @State private var name: String = ""
     @State private var location: String = ""
-    
-    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    @State private var comment: String = ""
     
     var body: some View {
         VStack {
@@ -34,8 +37,21 @@ struct PersonView: View {
                 .cornerRadius(5.0)
                 .padding(.bottom, 20)
             
+            TextField("Comments", text: $comment)
+                .padding()
+                .background(Color(UIColor.accent2))
+                .cornerRadius(5.0)
+                .padding(.bottom, 20)
+            
             Button(action: {
-                self.presentationMode.wrappedValue.dismiss()
+                let person = Person(name: self.name, location: self.location, comment: self.comment)
+                self.viewModel.addNewPerson(item: person) { error in
+                    if error == nil {
+                        DispatchQueue.main.async {
+                            self.presentationMode.wrappedValue.dismiss()
+                        }
+                    }
+                }
             }) {
                 Text("ADD")
                     .font(.headline)
@@ -44,7 +60,7 @@ struct PersonView: View {
                     .frame(width: 220, height: 60)
                     .background(
                         Color(UIColor.accent1)
-                    )
+                )
                     .cornerRadius(15.0)
             }
             

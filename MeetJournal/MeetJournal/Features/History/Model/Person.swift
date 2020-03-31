@@ -9,10 +9,7 @@
 import Foundation
 
 struct Person {
-    let id: UUID = UUID()
     let name: String
     let location: String
-    let date: String
+    let comment: String?
 }
-
-extension Person: Identifiable {}

@@ -17,6 +17,9 @@ struct PersonView: View {
     
     @Binding var isPresented: Bool
     
+    @State var shouldShowAlert: Bool = false
+    @State var errorMessage: CoreDataError = .coreDataError
+    
     var body: some View {
         VStack {
             Image("friends")
@@ -26,37 +29,30 @@ struct PersonView: View {
                 .padding(.bottom, 100)
             
             TextField("Name", text: $name)
-                .padding()
-                .background(Color(UIColor.accent2))
-                .cornerRadius(5.0)
-                .padding(.bottom, 20)
+                .modifier(PrimaryTextField())
 
             TextField("Location", text: $location)
-                .padding()
-                .background(Color(UIColor.accent2))
-                .cornerRadius(5.0)
-                .padding(.bottom, 20)
+                .modifier(PrimaryTextField())
             
             TextField("Comments", text: $comment)
-                .padding()
-                .background(Color(UIColor.accent2))
-                .cornerRadius(5.0)
-                .padding(.bottom, 20)
+                .modifier(PrimaryTextField())
             
             Button(action: {
-                self.viewModel.addNewPerson(name: self.name, location: self.location, comment: self.comment)
-                self.isPresented = false
-            }) {
+                do {
+                    try self.viewModel.addNewPerson(name: self.name, location: self.location, comment: self.comment)
+                    self.isPresented = false
+                } catch {
+                    self.errorMessage = error as! CoreDataError
+                    self.shouldShowAlert.toggle()
+                }
+            }, label: {
                 Text("ADD")
-                    .font(.headline)
-                    .foregroundColor(.white)
-                    .padding()
-                    .frame(width: 220, height: 60)
-                    .background(
-                        Color(UIColor.accent1)
-                )
-                    .cornerRadius(15.0)
-            }
+            }).modifier(PrimaryButton())
+            .alert(isPresented: $shouldShowAlert) {
+                Alert(title: Text("Error"),
+                      message: Text("\(errorMessage.description)"),
+                      dismissButton: .default(Text("OK")))
+             }
             
         }.padding(40)
     }

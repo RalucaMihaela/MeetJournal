@@ -13,6 +13,9 @@
 		1759741A243209DF0075A0BA /* PersonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17597419243209DF0075A0BA /* PersonViewModel.swift */; };
 		1759741D24332D700075A0BA /* HistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1759741C24332D700075A0BA /* HistoryViewModel.swift */; };
 		1759741F243483F70075A0BA /* NSPredicate+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1759741E243483F60075A0BA /* NSPredicate+Extensions.swift */; };
+		1759742224348B320075A0BA /* CoreDataError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1759742124348B320075A0BA /* CoreDataError.swift */; };
+		175974252434B52E0075A0BA /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175974242434B52E0075A0BA /* PrimaryButton.swift */; };
+		175974272434B5EA0075A0BA /* PrimaryTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175974262434B5EA0075A0BA /* PrimaryTextField.swift */; };
 		17C9AA14242B51BA00E592A3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C9AA13242B51BA00E592A3 /* AppDelegate.swift */; };
 		17C9AA16242B51BA00E592A3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C9AA15242B51BA00E592A3 /* SceneDelegate.swift */; };
 		17C9AA1A242B51BE00E592A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17C9AA19242B51BE00E592A3 /* Assets.xcassets */; };
@@ -34,6 +37,9 @@
 		17597419243209DF0075A0BA /* PersonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonViewModel.swift; sourceTree = "<group>"; };
 		1759741C24332D700075A0BA /* HistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewModel.swift; sourceTree = "<group>"; };
 		1759741E243483F60075A0BA /* NSPredicate+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSPredicate+Extensions.swift"; sourceTree = "<group>"; };
+		1759742124348B320075A0BA /* CoreDataError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataError.swift; sourceTree = "<group>"; };
+		175974242434B52E0075A0BA /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
+		175974262434B5EA0075A0BA /* PrimaryTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryTextField.swift; sourceTree = "<group>"; };
 		17C9AA10242B51BA00E592A3 /* MeetJournal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MeetJournal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		17C9AA13242B51BA00E592A3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		17C9AA15242B51BA00E592A3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -84,6 +90,23 @@
 				1759741C24332D700075A0BA /* HistoryViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		1759742024348B220075A0BA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1759742124348B320075A0BA /* CoreDataError.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		175974232434B4870075A0BA /* Controls */ = {
+			isa = PBXGroup;
+			children = (
+				175974242434B52E0075A0BA /* PrimaryButton.swift */,
+				175974262434B5EA0075A0BA /* PrimaryTextField.swift */,
+			);
+			path = Controls;
 			sourceTree = "<group>";
 		};
 		17C9AA07242B51BA00E592A3 = {
@@ -193,18 +216,20 @@
 		17C9AA41242B79CA00E592A3 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				17C9AA42242B79D000E592A3 /* Color */,
+				175974232434B4870075A0BA /* Controls */,
+				1759742024348B220075A0BA /* Model */,
+				17C9AA42242B79D000E592A3 /* Extenstions */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
 		};
-		17C9AA42242B79D000E592A3 /* Color */ = {
+		17C9AA42242B79D000E592A3 /* Extenstions */ = {
 			isa = PBXGroup;
 			children = (
 				17C9AA43242B79DF00E592A3 /* UIColor+Extensions.swift */,
 				1759741E243483F60075A0BA /* NSPredicate+Extensions.swift */,
 			);
-			path = Color;
+			path = Extenstions;
 			sourceTree = "<group>";
 		};
 		17C9AA45242B7F2400E592A3 /* View */ = {
@@ -286,12 +311,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1759742224348B320075A0BA /* CoreDataError.swift in Sources */,
 				17597414242DF0630075A0BA /* History+CoreDataProperties.swift in Sources */,
 				17C9AA37242B716200E592A3 /* Person.swift in Sources */,
 				17C9AA48242B84DF00E592A3 /* PersonView.swift in Sources */,
 				17C9AA40242B77B000E592A3 /* HistoryListHeader.swift in Sources */,
 				17C9AA14242B51BA00E592A3 /* AppDelegate.swift in Sources */,
+				175974272434B5EA0075A0BA /* PrimaryTextField.swift in Sources */,
 				175973FB242BE93B0075A0BA /* MeetJournal.xcdatamodeld in Sources */,
+				175974252434B52E0075A0BA /* PrimaryButton.swift in Sources */,
 				17C9AA3E242B74E700E592A3 /* HistoryListRow.swift in Sources */,
 				17597413242DF0630075A0BA /* History+CoreDataClass.swift in Sources */,
 				17C9AA32242B711600E592A3 /* HistoryView.swift in Sources */,

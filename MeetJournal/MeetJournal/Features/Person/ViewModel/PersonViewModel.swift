@@ -36,7 +36,6 @@ final class PersonViewModel: ObservableObject {
         
         do {
             try self.managedObjectContext.save()
-            print("Order saved.")
         } catch {
             throw CoreDataError.coreDataError
         }

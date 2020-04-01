@@ -14,11 +14,10 @@ struct PersonView: View {
     @State private var name: String = ""
     @State private var location: String = ""
     @State private var comment: String = ""
-    
-    @Binding var isPresented: Bool
-    
     @State var shouldShowAlert: Bool = false
     @State var errorMessage: CoreDataError = .coreDataError
+    
+    @Binding var isPresented: Bool
     
     var body: some View {
         VStack {

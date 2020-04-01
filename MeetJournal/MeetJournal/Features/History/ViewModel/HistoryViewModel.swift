@@ -18,7 +18,6 @@ final class HistoryViewModel: ObservableObject {
     func fetchResults(date: Date) -> [History] {
         let historyFetch : NSFetchRequest<History> = History.fetchRequest()
         historyFetch.predicate = NSPredicate.filter(key: "date", onDayRangeForDate: date)
-    
         
         do {
             return try managedObjectContext.fetch(historyFetch)

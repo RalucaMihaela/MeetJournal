@@ -10,7 +10,9 @@ import SwiftUI
 
 struct HistoryListRow: View {
     
-    var person: Person
+    var personName: String
+    var personLocation: String
+    var personComment: String
     
     var body: some View {
         ZStack {

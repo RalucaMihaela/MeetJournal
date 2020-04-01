@@ -13,12 +13,6 @@ struct HistoryView: View {
     
     @State private var currentDate = Date()
     
-    var dateFormatter: DateFormatter {
-        let formatter = DateFormatter()
-        formatter.dateStyle = .short
-        return formatter
-    }
-    
     var body: some View {
         VStack {
             Form {
@@ -30,9 +24,9 @@ struct HistoryView: View {
                 
                 List {
                     ForEach(self.viewModel.fetchResults(date: $currentDate.wrappedValue)) { person in
-                        HistoryListRow(person: Person(name: person.name,
-                                                      location: person.location,
-                                                      comment: person.comment ?? ""))
+                        HistoryListRow(personName: person.name,
+                                       personLocation: person.location,
+                                       personComment: person.comment ?? "")
                     }
                 }
             }

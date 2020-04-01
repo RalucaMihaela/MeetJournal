@@ -25,4 +25,8 @@ final class HistoryViewModel: ObservableObject {
             return []
         }
     }
+    
+    var numberOfItems: Int {
+        return historyItems.count
+    }
 }

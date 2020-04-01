@@ -23,62 +23,11 @@ struct HistoryListRow: View {
             
             HStack {
                 
-                ZStack {
-                    Rectangle()
-                        .foregroundColor(Color(.accent1))
-                        .frame(width: 100)
-                    
-                    VStack {
-                        Text(self.personDate.getDay())
-                            .font(.title)
-                            .foregroundColor(.white)
-                        
-                        Text(self.personDate.getMonth())
-                            .font(.title)
-                            .foregroundColor(.white)
-                        
-                        Text(self.personDate.getHour())
-                            .font(.footnote)
-                            .foregroundColor(.white)
-                            .padding(.top, 10)
-                    }
-                }
+                HistoryListRowLeftView(personDate: self.personDate)
                 
-                VStack {
-                    HStack(alignment: .top) {
-                        VStack() {
-                            Text("WHO")
-                                .font(.system(size: 10))
-                                .foregroundColor(Color.gray)
-                            Text("Raluca Ionescu")
-                                .font(.custom("ClanOT-News", size: 15))
-                                .padding(.top, 5)
-                                .lineLimit(nil)
-                        }
-                        
-                        Spacer()
-                            .frame(width: 10)
-                        
-                        VStack() {
-                            Text("WHERE")
-                                .font(.system(size: 10))
-                                .foregroundColor(Color.gray)
-                            Text("Strada Irina Rosetti nr.18 ")
-                                .font(.custom("ClanOT-News", size: 15))
-                                .padding(.top, 5)
-                                .lineLimit(nil)
-                        }
-                        .frame(minWidth: 0, maxWidth: .infinity)
-                    }
-                    
-                    Text("In capatul strazii")
-                        .font(.custom("ClanOT-News", size: 12))
-                        .foregroundColor(Color.gray)
-                        .padding([.leading, .trailing],5)
-                        .padding(.top,20)
-                        .lineLimit(nil)
-                    
-                }
+                HistoryListRowRightView(personName: self.personName,
+                                        personLocation: self.personLocation,
+                                        personComment: self.personComment)
                 
             }.frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
         }

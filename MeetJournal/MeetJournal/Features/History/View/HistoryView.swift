@@ -26,7 +26,8 @@ struct HistoryView: View {
                     ForEach(self.viewModel.fetchResults(date: $currentDate.wrappedValue)) { person in
                         HistoryListRow(personName: person.name,
                                        personLocation: person.location,
-                                       personComment: person.comment ?? "")
+                                       personComment: person.comment ?? "",
+                                       personDate: person.date)
                     }
                 }
             }

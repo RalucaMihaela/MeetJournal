@@ -11,5 +11,5 @@ import Foundation
 struct Person {
     let name: String
     let location: String
-    let comment: String?
+    let comment: String
 }

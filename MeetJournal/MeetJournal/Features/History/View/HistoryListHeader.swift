@@ -9,6 +9,8 @@
 import SwiftUI
 
 struct HistoryListHeader: View {
+//    var date: Date
+    
     var body: some View {
         HStack {
             Image(systemName: "map")

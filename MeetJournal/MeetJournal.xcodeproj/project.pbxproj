@@ -12,6 +12,7 @@
 		17597414242DF0630075A0BA /* History+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17597412242DF0630075A0BA /* History+CoreDataProperties.swift */; };
 		1759741A243209DF0075A0BA /* PersonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17597419243209DF0075A0BA /* PersonViewModel.swift */; };
 		1759741D24332D700075A0BA /* HistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1759741C24332D700075A0BA /* HistoryViewModel.swift */; };
+		1759741F243483F70075A0BA /* NSPredicate+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1759741E243483F60075A0BA /* NSPredicate+Extensions.swift */; };
 		17C9AA14242B51BA00E592A3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C9AA13242B51BA00E592A3 /* AppDelegate.swift */; };
 		17C9AA16242B51BA00E592A3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C9AA15242B51BA00E592A3 /* SceneDelegate.swift */; };
 		17C9AA1A242B51BE00E592A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17C9AA19242B51BE00E592A3 /* Assets.xcassets */; };
@@ -32,6 +33,7 @@
 		17597412242DF0630075A0BA /* History+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "History+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		17597419243209DF0075A0BA /* PersonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonViewModel.swift; sourceTree = "<group>"; };
 		1759741C24332D700075A0BA /* HistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewModel.swift; sourceTree = "<group>"; };
+		1759741E243483F60075A0BA /* NSPredicate+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSPredicate+Extensions.swift"; sourceTree = "<group>"; };
 		17C9AA10242B51BA00E592A3 /* MeetJournal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MeetJournal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		17C9AA13242B51BA00E592A3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		17C9AA15242B51BA00E592A3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 			isa = PBXGroup;
 			children = (
 				17C9AA43242B79DF00E592A3 /* UIColor+Extensions.swift */,
+				1759741E243483F60075A0BA /* NSPredicate+Extensions.swift */,
 			);
 			path = Color;
 			sourceTree = "<group>";
@@ -297,6 +300,7 @@
 				17C9AA2E242B54DC00E592A3 /* MenuTabView.swift in Sources */,
 				1759741A243209DF0075A0BA /* PersonViewModel.swift in Sources */,
 				1759741D24332D700075A0BA /* HistoryViewModel.swift in Sources */,
+				1759741F243483F70075A0BA /* NSPredicate+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

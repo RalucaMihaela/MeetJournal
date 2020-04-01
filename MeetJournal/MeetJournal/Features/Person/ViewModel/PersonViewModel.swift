@@ -12,13 +12,13 @@ import CoreData
 import UIKit
 
 final class PersonViewModel: ObservableObject {
-    var managedObjectContext: NSManagedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    private var managedObjectContext: NSManagedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
-    func addNewPerson(item: Person, completionBlock: ((Error?) -> Void)) {
+    func addNewPerson(name: String, location: String, comment: String)  {
         let newPerson = History(context: self.managedObjectContext)
-        newPerson.name = item.name
-        newPerson.location = item.location
-        newPerson.comment = item.comment
+        newPerson.name = name
+        newPerson.location = location
+        newPerson.comment = comment
         newPerson.date = Date()
         newPerson.id = UUID()
         

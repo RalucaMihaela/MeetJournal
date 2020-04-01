@@ -34,7 +34,7 @@ struct MenuTabView: View {
                 }
             }
         }.sheet(isPresented: $showNewItem, content: {
-            PersonView()
+            PersonView(isPresented: self.$showNewItem)
         })
     }
 }

@@ -9,13 +9,13 @@
 import SwiftUI
 
 struct PersonView: View {
-    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    
     @ObservedObject var viewModel: PersonViewModel = PersonViewModel()
     
     @State private var name: String = ""
     @State private var location: String = ""
     @State private var comment: String = ""
+    
+    @Binding var isPresented: Bool
     
     var body: some View {
         VStack {
@@ -44,14 +44,8 @@ struct PersonView: View {
                 .padding(.bottom, 20)
             
             Button(action: {
-                let person = Person(name: self.name, location: self.location, comment: self.comment)
-                self.viewModel.addNewPerson(item: person) { error in
-                    if error == nil {
-                        DispatchQueue.main.async {
-                            self.presentationMode.wrappedValue.dismiss()
-                        }
-                    }
-                }
+                self.viewModel.addNewPerson(name: self.name, location: self.location, comment: self.comment)
+                self.isPresented = false
             }) {
                 Text("ADD")
                     .font(.headline)

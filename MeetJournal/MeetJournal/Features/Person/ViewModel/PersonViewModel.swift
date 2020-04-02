@@ -10,10 +10,26 @@ import Foundation
 import Combine
 import CoreData
 import UIKit
+import CoreLocation
 
-final class PersonViewModel: ObservableObject {
+final class PersonViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
+    var locationManager: CLLocationManager
+    @Published var latestLocation: String = ""
+    
     private var managedObjectContext: NSManagedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
+    override init() {
+        locationManager = CLLocationManager()
+        super.init()
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestWhenInUseAuthorization()
 
+        if CLLocationManager.locationServicesEnabled(){
+            locationManager.startUpdatingLocation()
+        }
+    }
+    
      func addNewPerson(name: String, location: String, comment: String) throws {
         if name.isEmpty && location.isEmpty {
             throw CoreDataError.invalidItems
@@ -38,6 +54,30 @@ final class PersonViewModel: ObservableObject {
             try self.managedObjectContext.save()
         } catch {
             throw CoreDataError.coreDataError
+        }
+    }
+    
+    // MARK: Location
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let userLocation :CLLocation = locations[0] as CLLocation
+
+        let geocoder = CLGeocoder()
+        geocoder.reverseGeocodeLocation(userLocation) { (placemarks, error) in
+            if (error != nil){
+                print("error in reverseGeocode")
+            }
+            let placemark = placemarks! as [CLPlacemark]
+            if placemark.count>0{
+                let placemark = placemarks![0]
+                print(placemark.locality!)
+                print(placemark.administrativeArea!)
+                print(placemark.country!)
+
+                self.latestLocation = "\(String(describing: placemark.locality))"
+                print(" ViewModel \(self.latestLocation)")
+               // self.labelAdd.text = "\(placemark.locality!), \(placemark.administrativeArea!), \(placemark.country!)"
+            }
         }
     }
 }

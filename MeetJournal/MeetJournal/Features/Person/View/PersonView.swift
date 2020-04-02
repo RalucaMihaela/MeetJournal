@@ -21,7 +21,14 @@ struct PersonView: View {
     @Binding var isPresented: Bool
     
     var body: some View {
-        Form {
+        let binding = Binding<String>(get: {
+                   self.location
+               }, set: {
+                   self.location = $0
+               })
+
+        
+        return Form {
             Section {
                 HStack {
                     Spacer()
@@ -86,6 +93,13 @@ struct PersonView: View {
                     Spacer()
                 }
             }
+            
+            Text(location)
+            
         }.modifier(AdaptsToSoftwareKeyboard())
+        .onReceive(self.viewModel.$latestLocation) { value in
+            self.location = value
+            print("View \(self.location)")
+        }
     }
 }

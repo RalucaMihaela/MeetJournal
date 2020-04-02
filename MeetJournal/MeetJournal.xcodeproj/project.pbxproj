@@ -19,6 +19,8 @@
 		1759742B2435435A0075A0BA /* DateFormatter+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1759742A243543590075A0BA /* DateFormatter+Extensions.swift */; };
 		1759742D243549E40075A0BA /* HistoryListRowRightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1759742C243549E40075A0BA /* HistoryListRowRightView.swift */; };
 		1759742F24354A4A0075A0BA /* HistoryListRowLeftView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1759742E24354A4A0075A0BA /* HistoryListRowLeftView.swift */; };
+		175974322435D1790075A0BA /* AdaptsToSoftwareKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175974312435D1790075A0BA /* AdaptsToSoftwareKeyboard.swift */; };
+		175974342435D6770075A0BA /* TextFieldTyped.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175974332435D6770075A0BA /* TextFieldTyped.swift */; };
 		17C9AA14242B51BA00E592A3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C9AA13242B51BA00E592A3 /* AppDelegate.swift */; };
 		17C9AA16242B51BA00E592A3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C9AA15242B51BA00E592A3 /* SceneDelegate.swift */; };
 		17C9AA1A242B51BE00E592A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17C9AA19242B51BE00E592A3 /* Assets.xcassets */; };
@@ -44,6 +46,8 @@
 		1759742A243543590075A0BA /* DateFormatter+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Extensions.swift"; sourceTree = "<group>"; };
 		1759742C243549E40075A0BA /* HistoryListRowRightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryListRowRightView.swift; sourceTree = "<group>"; };
 		1759742E24354A4A0075A0BA /* HistoryListRowLeftView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryListRowLeftView.swift; sourceTree = "<group>"; };
+		175974312435D1790075A0BA /* AdaptsToSoftwareKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdaptsToSoftwareKeyboard.swift; sourceTree = "<group>"; };
+		175974332435D6770075A0BA /* TextFieldTyped.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldTyped.swift; sourceTree = "<group>"; };
 		17C9AA10242B51BA00E592A3 /* MeetJournal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MeetJournal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		17C9AA13242B51BA00E592A3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		17C9AA15242B51BA00E592A3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -109,6 +113,15 @@
 				175974262434B5EA0075A0BA /* PrimaryTextField.swift */,
 			);
 			path = Controls;
+			sourceTree = "<group>";
+		};
+		175974302435D15C0075A0BA /* ViewModifiers */ = {
+			isa = PBXGroup;
+			children = (
+				175974312435D1790075A0BA /* AdaptsToSoftwareKeyboard.swift */,
+				175974332435D6770075A0BA /* TextFieldTyped.swift */,
+			);
+			path = ViewModifiers;
 			sourceTree = "<group>";
 		};
 		17C9AA07242B51BA00E592A3 = {
@@ -210,6 +223,7 @@
 		17C9AA41242B79CA00E592A3 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				175974302435D15C0075A0BA /* ViewModifiers */,
 				175974232434B4870075A0BA /* Controls */,
 				1759742024348B220075A0BA /* Model */,
 				17C9AA42242B79D000E592A3 /* Extenstions */,
@@ -312,6 +326,7 @@
 				17597414242DF0630075A0BA /* History+CoreDataProperties.swift in Sources */,
 				17C9AA48242B84DF00E592A3 /* PersonView.swift in Sources */,
 				17C9AA14242B51BA00E592A3 /* AppDelegate.swift in Sources */,
+				175974342435D6770075A0BA /* TextFieldTyped.swift in Sources */,
 				175974272434B5EA0075A0BA /* PrimaryTextField.swift in Sources */,
 				175973FB242BE93B0075A0BA /* MeetJournal.xcdatamodeld in Sources */,
 				175974252434B52E0075A0BA /* PrimaryButton.swift in Sources */,
@@ -323,6 +338,7 @@
 				17C9AA2E242B54DC00E592A3 /* MenuTabView.swift in Sources */,
 				1759741A243209DF0075A0BA /* PersonViewModel.swift in Sources */,
 				1759741D24332D700075A0BA /* HistoryViewModel.swift in Sources */,
+				175974322435D1790075A0BA /* AdaptsToSoftwareKeyboard.swift in Sources */,
 				1759742F24354A4A0075A0BA /* HistoryListRowLeftView.swift in Sources */,
 				1759741F243483F70075A0BA /* NSPredicate+Extensions.swift in Sources */,
 			);

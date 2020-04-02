@@ -15,6 +15,7 @@ struct PrimaryTextField: ViewModifier {
             .padding()
             .background(Color(UIColor.accent2))
             .cornerRadius(5.0)
-            .padding(.bottom, 20)
+            .padding(.bottom, 10)
+        .disableAutocorrection(true)
     }
 }

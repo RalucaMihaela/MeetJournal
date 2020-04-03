@@ -20,21 +20,22 @@ struct MenuTabView: View {
             GeometryReader { geometry in
                 TabView(selection: self.$tabSelection) {
                     HistoryView().tabItem {
-                               Text("")
-                     }.tag(0)
+                        Text("")
+                    }.tag(0)
                 }
                 
                 Image("circle")
-                        .resizable()
-                        .frame(width: 60, height: 60)
-                        .shadow(color: .gray, radius: 2, x: 0, y: 5)
-                        .offset(x: geometry.size.width / 2 - 30, y: geometry.size.height - 80)
-                        .onTapGesture {
-                            self.showNewItem.toggle()
+                    .resizable()
+                    .frame(width: 60, height: 60)
+                    .shadow(color: .gray, radius: 2, x: 0, y: 5)
+                    .offset(x: geometry.size.width / 2 - 30, y: geometry.size.height - 80)
+                    .onTapGesture {
+                        self.showNewItem.toggle()
                 }
             }
         }.sheet(isPresented: $showNewItem, content: {
             PersonView(isPresented: self.$showNewItem)
         })
+        .edgesIgnoringSafeArea(.top)
     }
 }

@@ -14,7 +14,7 @@ final class HistoryViewModel: ObservableObject {
     private var managedObjectContext: NSManagedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     @Published private(set) var historyItems: [History] = []
-    
+
     func fetchResults(date: Date) -> [History] {
         let historyFetch : NSFetchRequest<History> = History.fetchRequest()
         historyFetch.predicate = NSPredicate.filter(key: "date", onDayRangeForDate: date)
@@ -24,9 +24,5 @@ final class HistoryViewModel: ObservableObject {
         } catch {
             return []
         }
-    }
-    
-    var numberOfItems: Int {
-        return historyItems.count
     }
 }

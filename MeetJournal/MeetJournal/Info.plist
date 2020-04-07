@@ -20,6 +20,10 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSFaceIDUsageDescription</key>
+	<string>Use Face ID instead of a password to access your account.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>If you want to detect automatically your location, allow the app to know your current location.</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -58,9 +62,5 @@
 	</array>
 	<key>UIUserInterfaceStyle</key>
 	<string>Light</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>If you want to detect automatically your location, allow the app to know your current location.</string>
-	<key>NSFaceIDUsageDescription</key>
-	<string>Use Face ID instead of a password to access your account.</string>
 </dict>
 </plist>

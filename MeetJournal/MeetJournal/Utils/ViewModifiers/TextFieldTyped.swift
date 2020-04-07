@@ -28,6 +28,7 @@ struct TextFieldTyped: UIViewRepresentable {
         textField.placeholder = placeholder
         textField.text = self.text
         
+        print("TextFieldType - \(self.text)")
         return textField
     }
     
@@ -58,6 +59,16 @@ struct TextFieldTyped: UIViewRepresentable {
         
         func updatefocus(textfield: UITextField) {
             textfield.becomeFirstResponder()
+        }
+        
+        func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+            if let text = textField.text,
+                let textRange = Range(range, in: text) {
+                let updatedText = text.replacingCharacters(in: textRange,
+                                                           with: string)
+                self.parent.text = updatedText
+            }
+            return true
         }
         
         func textFieldShouldReturn(_ textField: UITextField) -> Bool {

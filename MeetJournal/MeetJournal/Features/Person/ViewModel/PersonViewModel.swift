@@ -35,11 +35,11 @@ final class PersonViewModel: NSObject, ObservableObject, CLLocationManagerDelega
             throw CoreDataError.invalidItems
         }
         
-        guard name.isEmpty == false else {
+        guard !name.isEmpty else {
             throw CoreDataError.invalidName
         }
         
-        guard location.isEmpty == false else {
+        guard !location.isEmpty else {
             throw CoreDataError.invalidLocation
         }
         

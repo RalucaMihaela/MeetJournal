@@ -39,7 +39,9 @@ struct TextFieldTyped: UIViewRepresentable {
                 uiView.resignFirstResponder()
             }
             
-            uiView.text = self.text
+            if uiView.tag == 1 {
+                uiView.text = self.text
+            }
         }
     }
     

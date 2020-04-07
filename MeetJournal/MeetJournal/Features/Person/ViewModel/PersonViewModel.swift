@@ -70,16 +70,10 @@ final class PersonViewModel: NSObject, ObservableObject, CLLocationManagerDelega
             let placemark = placemarks! as [CLPlacemark]
             if placemark.count>0{
                 let placemark = placemarks![0]
-                print(placemark.locality!)
-                print(placemark.administrativeArea!)
-                print(placemark.country!)
-
+            
                 if let city = placemark.locality, let street = placemark.thoroughfare {
                      self.latestLocation = "\(street) , \(city) "
                 }
-               
-                print(" ViewModel \(self.latestLocation)")
-               // self.labelAdd.text = "\(placemark.locality!), \(placemark.administrativeArea!), \(placemark.country!)"
             }
         }
     }

@@ -21,11 +21,11 @@ struct PersonView: View {
     @Binding var isPresented: Bool
     
     var body: some View {
-        let binding = Binding<String>(get: {
-                   self.location
-               }, set: {
-                   self.location = $0
-               })
+//        let binding = Binding<String>(get: {
+//                   self.location
+//               }, set: {
+//                   self.location = $0
+//               })
 
         
         return Form {
@@ -94,12 +94,9 @@ struct PersonView: View {
                 }
             }
             
-            Text(location)
-            
         }.modifier(AdaptsToSoftwareKeyboard())
         .onReceive(self.viewModel.$latestLocation) { value in
             self.location = value
-            print("View \(self.location)")
         }
     }
 }

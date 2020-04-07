@@ -26,6 +26,7 @@ struct TextFieldTyped: UIViewRepresentable {
         textField.delegate = context.coordinator
         textField.autocorrectionType = .no
         textField.placeholder = placeholder
+        textField.text = self.text
         
         return textField
     }
@@ -37,6 +38,8 @@ struct TextFieldTyped: UIViewRepresentable {
             } else {
                 uiView.resignFirstResponder()
             }
+            
+            uiView.text = self.text
         }
     }
     

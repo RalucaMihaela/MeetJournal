@@ -24,13 +24,13 @@ final class PersonViewModel: NSObject, ObservableObject, CLLocationManagerDelega
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
-
+        
         if CLLocationManager.locationServicesEnabled(){
             locationManager.startUpdatingLocation()
         }
     }
     
-     func addNewPerson(name: String, location: String, comment: String) throws {
+    func addNewPerson(name: String, location: String, comment: String) throws {
         if name.isEmpty && location.isEmpty {
             throw CoreDataError.invalidItems
         }
@@ -61,20 +61,27 @@ final class PersonViewModel: NSObject, ObservableObject, CLLocationManagerDelega
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let userLocation :CLLocation = locations[0] as CLLocation
-
+        
         let geocoder = CLGeocoder()
         geocoder.reverseGeocodeLocation(userLocation) { (placemarks, error) in
             if (error != nil){
                 print("error in reverseGeocode")
             }
-            let placemark = placemarks! as [CLPlacemark]
-            if placemark.count>0{
-                let placemark = placemarks![0]
             
-                if let city = placemark.locality, let street = placemark.thoroughfare {
-                     self.latestLocation = "\(street) , \(city) "
+            guard let location = placemarks?.first else {
+                return
+            }
+            
+            if let city = location.locality,
+                let street = location.thoroughfare {
+                
+                if let number = location.subThoroughfare {
+                    self.latestLocation = "\(street) \(number), \(city) "
+                } else {
+                    self.latestLocation = "\(street), \(city) "
                 }
             }
         }
+        
     }
 }

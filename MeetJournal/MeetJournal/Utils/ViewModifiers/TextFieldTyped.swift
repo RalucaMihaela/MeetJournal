@@ -28,7 +28,6 @@ struct TextFieldTyped: UIViewRepresentable {
         textField.placeholder = placeholder
         textField.text = self.text
         
-        print("TextFieldType - \(self.text)")
         return textField
     }
     

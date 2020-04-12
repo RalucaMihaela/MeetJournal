@@ -14,6 +14,8 @@ import CoreLocation
 
 final class PersonViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
     var locationManager: CLLocationManager
+    var shouldStopLocation: Bool = false
+    
     @Published var latestLocation: String = ""
     
     private var managedObjectContext: NSManagedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -60,9 +62,10 @@ final class PersonViewModel: NSObject, ObservableObject, CLLocationManagerDelega
     // MARK: Location
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+  
         let userLocation :CLLocation = locations[0] as CLLocation
-        
         let geocoder = CLGeocoder()
+        
         geocoder.reverseGeocodeLocation(userLocation) { (placemarks, error) in
             if (error != nil){
                 print("error in reverseGeocode")
@@ -75,13 +78,15 @@ final class PersonViewModel: NSObject, ObservableObject, CLLocationManagerDelega
             if let city = location.locality,
                 let street = location.thoroughfare {
                 
+                print("LOCATION")
                 if let number = location.subThoroughfare {
                     self.latestLocation = "\(street) \(number), \(city) "
                 } else {
                     self.latestLocation = "\(street), \(city) "
                 }
+                
+            //    self.locationManager.stopUpdatingLocation()
             }
         }
-        
     }
 }

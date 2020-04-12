@@ -20,14 +20,11 @@ struct PersonView: View {
     
     @Binding var isPresented: Bool
     
+    @State private var activeFieldTag : [Int?] = [0,1,2]
+    
+    @State private var isSecureField : Bool = false
+    
     var body: some View {
-//        let binding = Binding<String>(get: {
-//                   self.location
-//               }, set: {
-//                   self.location = $0
-//               })
-
-        
         return Form {
             Section {
                 HStack {
@@ -44,29 +41,33 @@ struct PersonView: View {
             }
             
             Section {
-                TextFieldTyped(keyboardType: .default,
-                               returnVal: .next,
-                               placeholder: "Name",
-                               tag: 0,
-                               text: $name,
-                               isfocusAble: $focused)
+
+                CustomTextField(tag: 0,
+                                placeholder: "Name",
+                                keyboardType: .default,
+                                returnVal: .next,
+                                text: $name,
+                                activeFieldTag: $activeFieldTag[0],
+                                isSecureTextEntry: $isSecureField)
                     .modifier(PrimaryTextField())
-                
-                TextFieldTyped(keyboardType: .default,
-                               returnVal: .next,
-                               placeholder: "Location",
-                               tag: 1,
-                               text: $location,
-                               isfocusAble: $focused)
-                    .modifier(PrimaryTextField())
-                
-                TextFieldTyped(keyboardType: .default,
-                               returnVal: .done,
-                               placeholder: "Comments (optional)",
-                               tag: 2,
-                               text: $comment,
-                               isfocusAble: $focused)
-                    .modifier(PrimaryTextField())
+
+                CustomTextField(tag: 1,
+                            placeholder: "Location",
+                            keyboardType: .default,
+                            returnVal: .next,
+                            text: $location,
+                            activeFieldTag: $activeFieldTag[1],
+                            isSecureTextEntry: $isSecureField)
+                .modifier(PrimaryTextField())
+
+                CustomTextField(tag: 2,
+                            placeholder: "Comment (optional)",
+                            keyboardType: .default,
+                            returnVal: .done,
+                            text: $comment,
+                            activeFieldTag: $activeFieldTag[2],
+                            isSecureTextEntry: $isSecureField)
+                .modifier(PrimaryTextField()) 
             }.padding([.leading, .trailing], 40)
             
             Section {

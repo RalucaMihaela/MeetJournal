@@ -36,6 +36,5 @@ struct MenuTabView: View {
         }.sheet(isPresented: $showNewItem, content: {
             PersonView(isPresented: self.$showNewItem)
         })
-        .edgesIgnoringSafeArea(.top)
     }
 }

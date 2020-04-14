@@ -137,22 +137,22 @@ struct CustomTextField: UIViewRepresentable {
             return true
         }
 
-        func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-            DispatchQueue.main.async {
-                // To enable user to click on any textField while another is active
-                self.parent.activeFieldTag = self.parent.tag
-                self.parent.onEditingChanged(true)
-            }
-            return true
-        }
-
-        func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
-            DispatchQueue.main.async {
-                self.parent.text = textField.text ?? ""
-                self.parent.onEditingChanged(false)
-            }
-            return true
-        }
+//        func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+//            DispatchQueue.main.async {
+//                // To enable user to click on any textField while another is active
+//                self.parent.activeFieldTag = self.parent.tag
+//                self.parent.onEditingChanged(true)
+//            }
+//            return true
+//        }
+//
+//        func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+//            DispatchQueue.main.async {
+//                self.parent.text = textField.text ?? ""
+//                self.parent.onEditingChanged(false)
+//            }
+//            return true
+//        }
 
         func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
             if let text = textField.text, let rangeExp = Range(range, in: text) {
